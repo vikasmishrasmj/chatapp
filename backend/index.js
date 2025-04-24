@@ -25,7 +25,7 @@ import path from 'path'
 
  app.use(express.static(path.join(__dirname,"/frontend/dist")))//uee path here to send project live
 
- app.get('*',(req,resp)=>{
+ app.get('*splat',(req,resp)=>{
     resp.sendFile(path.join(__dirname,"frontend","dist","index.html"))
 })
 
