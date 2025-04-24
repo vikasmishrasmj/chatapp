@@ -8,6 +8,9 @@ import cookieParser from 'cookie-parser'
 import cors from 'cors';
 //const app = express()// iski jagah ab 
 import {app, server} from './Socket/socketio.js'
+import path from 'path'
+
+ const __dirname = path.resolve();// use for sending project live
 
  dotenv.config()
  
@@ -19,6 +22,12 @@ import {app, server} from './Socket/socketio.js'
  app.use('/api/auth',authRouter);
  app.use('/api/message',messageRouter)
  app.use('/api/user',userRouter)
+
+ app.use(express.static(path.join(__dirname,"/frontend/dist")))//uee path here to send project live
+
+ app.get('*',(req,resp)=>{
+    resp.sendFile(path.join(__dirname,"frontend","dist","index.html"))
+})
 
 app.get('/',(req,resp)=>{
     resp.send("server is running")
