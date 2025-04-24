@@ -14,7 +14,7 @@ const server = http.createServer(app);
 // ✅ Creating a new instance of Socket.IO server and attaching it to the HTTP server
 const io = new SocketIOServer(server, {
     cors: {
-        origin: ['http://localhost:5173'], // ✅ Allowing frontend (React) from this origin to connect via socket
+        origin: ['https://chatapp-wdvo.onrender.com'], // ✅ Allowing frontend (React) from this origin to connect via socket
         methods: ["GET", "POST"]           // ✅ Allowing only GET and POST methods for CORS
     }
 });
